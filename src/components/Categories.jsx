@@ -9,17 +9,18 @@ function Categories() {
 
   const [getAllCategories, setGetAllCategories] = useState([])
 
-  useEffect(()=>{
-    allCategoriesService.getAllCategories().then((data)=>{
-      setGetAllCategories(data)
-    })
-  },[]);
+  useEffect(() => {
+    allCategoriesService.getAllCategories()
+      .then((data) => {
+        setGetAllCategories(data.categories)
+      })
+  }, []);
 
   return (
     <motion.div className='sliderBox'>
       <h4 className='h4'>Categories</h4>
       <motion.div className='sliderCategories'>
-        {getAllCategories.map((item)=>{
+        {getAllCategories.map((item) => {
           return (
             <motion.div className='itemCategories' key={item.id}>
               <Link to={`/category-movies/${item.id}`}>
