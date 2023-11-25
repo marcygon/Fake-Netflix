@@ -13,7 +13,7 @@ function CategoryMovies() {
         allCategoryMoviesService.getCategoryMovies(id).then((data)=>{
             setGetCategoryMovies(data)
         })
-    },[])
+    },[id])
 
   return (
     <>
@@ -22,7 +22,7 @@ function CategoryMovies() {
       {getCategoryMovies.map((movie)=>{
         return (
             <div className='posterList'>
-                <img className='posterImg' src={movie.img}/>
+                <img className='posterImg' src={movie.img} alt={movie.title}/>
                 <h3 className='h3'>{movie.title}</h3>
             </div>
         )

@@ -13,7 +13,7 @@ function MovieDetails() {
   useEffect(()=>{
     allMoviesService.getMovieDetails(id).then((data)=>{
       setGetMovieDetails(data)
-    })},[]);
+    })},[id]);
 
   
   return (
